@@ -1,3 +1,8 @@
+//Copyright (C) 2024 Alfiyan
+//All rights reserved.
+//
+//This file is part of Praktikum-Mobile-UTS.
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -36,7 +41,7 @@ android {
 }
 
 dependencies {
-
+    implementation("androidx.security:security-crypto:1.1.0-alpha03")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

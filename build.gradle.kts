@@ -1,3 +1,8 @@
+//Copyright (C) 2024 Alfiyan
+//All rights reserved.
+//
+//This file is part of Praktikum-Mobile-UTS.
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     alias(libs.plugins.android.application) apply false

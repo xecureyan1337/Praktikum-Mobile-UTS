@@ -22,14 +22,25 @@
 
     <!-- Confirmation Nama Makanan -->
     <TextView
+        android:id="@+id/tvFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Food Name: Batagor"
         android:textSize="18sp"
         android:layout_marginBottom="8dp"/>
 
+    <!-- Confirmation Deskripsi Makanan -->
+    <TextView
+        android:id="@+id/tvFoodDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description: No Description"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
     <!-- Confirmation Jumlah Porsi -->
     <TextView
+        android:id="@+id/tvServings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Number of Servings: 2 pax"
@@ -38,6 +49,7 @@
 
     <!-- Confirmation Nama pengorder -->
     <TextView
+        android:id="@+id/tvOrderingName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ordering Name: Usep"
@@ -46,6 +58,7 @@
 
     <!-- Input Catatan Tambahan -->
     <TextView
+        android:id="@+id/tvNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Additional Notes: Tidak Pedas"
@@ -65,6 +78,6 @@
         android:id="@+id/backtoMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back to Menu"
+        android:text="Back to Menu" />
 
 </LinearLayout>
