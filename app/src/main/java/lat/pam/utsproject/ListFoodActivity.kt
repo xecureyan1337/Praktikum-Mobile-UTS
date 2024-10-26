@@ -1,18 +1,18 @@
-//Copyright (C) 2024 Alfiyan
-//All rights reserved.
-//
-//This file is part of Praktikum-Mobile-UTS.
-
 package lat.pam.utsproject
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 
 class ListFoodActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -20,6 +20,7 @@ class ListFoodActivity : AppCompatActivity() {
     private lateinit var foodList: List<Food>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_list_food)
@@ -28,11 +29,16 @@ class ListFoodActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Preparing food data
-//        @COPYRIGHT ALFIYAN2024
         foodList = listOf(
             Food("Batagor", "Batagor asli enak dari Bandung", R.drawable.batagor),
             Food("Black Salad", "Salad segar yang dibuat secara langsung", R.drawable.black_salad),
-            Food("Cappucino", "Kopi cappucino asli yang dibuat dari Kopi Arabica", R.drawable.cappuchino)
+            Food("Cheese Cake", "Roti nyoynyoy lumer di mulutt", R.drawable.cheesecake),
+            Food("Cireng", "Cireng meleleh asli ngeunah...", R.drawable.cireng),
+            Food("Donut", "Donut bulat mantap bisa ditojos tengahna", R.drawable.donut),
+            Food("Kepi Uxcaaahhh", "Lamun ngoding teu bari NGOPI, lain programmer", R.drawable.kopi_hitam),
+            Food("Mie Goreng", "Lemas panjang panjang tapi ngeunah disruput...", R.drawable.mie_goreng),
+            Food("Nasi Goreng", "Nasi lamun digoreng jadina nasi goreng, lamun maneh teu boga duit eta mah NASIBBB", R.drawable.nasigoreng),
+            Food("Sparkling Tea", "cobaan weh sparkling tea kumaha rasana... testimoni om", R.drawable.sparkling_tea)
         )
 
         // Set up the adapter with a click listener
@@ -51,6 +57,37 @@ class ListFoodActivity : AppCompatActivity() {
 
         recyclerView.adapter = adapter
 
+        fun openWhatsApp() {
+            val phoneNumber = "+62815383343576"
+            val message = "Hai gw mau order makan"
+
+            val sendIntent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://wa.me/$phoneNumber?text=$message")
+            }
+
+            if (sendIntent.resolveActivity(/* pm = */ packageManager) != null) {
+                startActivity(sendIntent)
+            } else {
+                AlertDialog.Builder(this)
+                    .setTitle("WhatsApp belum terinstall bro")
+                    .setMessage("Install WA dulu")
+                    .setPositiveButton("Yes") { _, _ ->
+                        try {
+                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.whatsapp")))
+                        } catch (anfe: ActivityNotFoundException) {
+                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp")))
+                        }
+                    }
+                    .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
+                    .show()
+            }
+        }
+
+        val contactImageView: ImageView = findViewById(R.id.contact)
+        contactImageView.setOnClickListener {
+            openWhatsApp()
+        }
+
 //        @COPYRIGHT ALFIYAN2024
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -59,5 +96,3 @@ class ListFoodActivity : AppCompatActivity() {
         }
     }
 }
-
-//@COPYRIGHT ALFIYAN2024

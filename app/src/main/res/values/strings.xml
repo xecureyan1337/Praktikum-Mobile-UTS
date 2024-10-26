@@ -5,4 +5,6 @@
     <string name="login">Login\n</string>
     <string name="register">Register Here</string>
     <string name="food_list_title">Food and Beverages</string>
+    <string name="food_description_list_title">Ayo beli produk ini murah, pc nomer di bawah ini</string>
+    <string name="contact_descr">Ini kontek official kami</string>
 </resources>

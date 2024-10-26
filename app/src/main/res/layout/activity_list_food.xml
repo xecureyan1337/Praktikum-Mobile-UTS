@@ -16,6 +16,9 @@
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
+        android:textColor="@color/orange"
+        android:background="@color/black"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:text="@string/food_list_title"
         android:textSize="24sp"
@@ -23,11 +26,36 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"/>
 
-    <!-- RecyclerView untuk Daftar Makanan -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="@string/food_description_list_title"
+        android:layout_height="30dp" />
+
+    <ImageView
+        android:id="@+id/contact"
+        android:layout_gravity="center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/contact_descr"
+        android:src="@drawable/ic_action_wa" />
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"/>
+        android:text="Halo" />
+
+    <!-- RecyclerView untuk Daftar Makanan -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+
 
 </LinearLayout>
